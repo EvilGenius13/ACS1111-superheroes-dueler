@@ -1,5 +1,14 @@
 import random
 
+class Ability:
+    def __init__(self, name, max_damage):
+        self.name = name
+        self.max_damage = max_damage
+    
+    def attack(self):
+        random_value = random.randint(0, self.max_damage)
+        return random_value
+
 class Hero:
     def __init__(self, name, starting_health=100):
         self.name = name
@@ -18,8 +27,7 @@ class Hero:
 
 
 if __name__ == "__main__":
-    my_hero = Hero("Grace Hopper", 200)
-    opponent = Hero("Bad Dude", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
-    my_hero.fight(opponent)
+    hero = Hero("Superman", 200)
+    villain = Hero("Joker", 200)
+    hero.name
+    hero.fight(villain)
