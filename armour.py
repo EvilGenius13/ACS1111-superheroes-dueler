@@ -11,6 +11,6 @@ class Armour:
 
 
 if __name__ == "__main__":
-    armor = Armour("Wooden Shield", 10)
-    print(armor.name)
-    print(armor.block())
+    armour = Armour("Wooden Shield", 10)
+    print(armour.name)
+    print(armour.block())

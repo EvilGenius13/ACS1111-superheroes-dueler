@@ -10,6 +10,8 @@ class Hero:
         self.name = name
         self.starting_health = starting_health
         self.current_health = starting_health
+        self.kills = 0
+        self.deaths = 0
 
     def fight(self, opponent):
         if (len(self.abilities) == 0) and (len(opponent.abilities) == 0):
@@ -19,20 +21,24 @@ class Hero:
                 atk_damage = self.attack()
                 atk_opponent_damage = opponent.attack()
                 self.take_damage(atk_opponent_damage)
-                print(self.current_health)
-                print(self.isalive())
+                #print(self.current_health)
+                #print(self.isalive())
                 opponent.take_damage(atk_damage)
-                print(opponent.current_health)
-                print(opponent.isalive())
-                print('--------------------')
+                #print(opponent.current_health)
+                #print(opponent.isalive())
+                #print('--------------------')
                 if self.isalive() == False and opponent.isalive() == False:
                     print(f"Neither hero made it through the battle.")
+                    self.add_kill(), self.add_death()
+                    opponent.add_kill(), opponent.add_death()
                     break
                 elif self.isalive() == False and opponent.isalive() == True:
                     print(f"Sadly, our hero {self.name} was defeated by {opponent.name}")
+                    self.add_death(), opponent.add_kill()
                     break
                 elif opponent.isalive() == False and self.isalive() == True:
                     print(f"Our hero {self.name} defeated {opponent.name}")
+                    self.add_kill(), opponent.add_death()
                     break
     
     def add_ability(self, ability):
@@ -65,6 +71,12 @@ class Hero:
             return False
         else:
             return True
+    
+    def add_kill(self):
+        self.kills += 1
+    
+    def add_death(self):
+        self.deaths += 1
          
 
 if __name__ == "__main__":
