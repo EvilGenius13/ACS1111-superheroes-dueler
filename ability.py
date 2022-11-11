@@ -11,6 +11,6 @@ class Ability:
 
 
 if __name__ == "__main__":
-    ability = Ability("Slash", 25)
+    ability = Ability("Incinerate", 25)
     print(ability.name)
     print(ability.attack())
