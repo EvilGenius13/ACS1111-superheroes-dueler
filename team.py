@@ -25,6 +25,8 @@ class Team:
 
     def stats(self):
         for hero in self.heroes:
+            if hero.deaths == 0:
+                hero.deaths = 1
             kd = hero.kills / hero.deaths
             print(f"{hero.name} Kill/Death Ratio: {kd}")
 
@@ -51,6 +53,6 @@ class Team:
                 living_opponents.remove(opponent)
             else: 
                 living_heroes.remove(hero)
-
+        
 
 
