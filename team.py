@@ -33,6 +33,8 @@ class Team:
     def revive_heroes(self, health=100):
         for hero in self.heroes:
             hero.current_health = health
+            hero.kills = 0
+            hero.deaths = 0
 
     def attack(self, other_team):
         living_heroes = list()
