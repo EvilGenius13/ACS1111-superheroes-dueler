@@ -1,6 +1,6 @@
 import random
 
-class Armor:
+class Armour:
     def __init__(self, name, max_block):
         self.name = name
         self.max_block = max_block
@@ -11,6 +11,6 @@ class Armor:
 
 
 if __name__ == "__main__":
-    armor = Armor("Wooden Shield", 10)
-    print(armor.name)
-    print(armor.block())
+    armour = Armour("Wooden Shield", 10)
+    print(armour.name)
+    print(armour.block())
