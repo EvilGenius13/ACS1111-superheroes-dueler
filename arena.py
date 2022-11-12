@@ -87,8 +87,6 @@ class Arena:
             print(f"Congratulations {self.team_one.name}, you won!")
         elif survivors_team_two > survivors_team_one:
             print(f"Congratulations {self.team_two.name}, you won!")
-        else: 
-            print(f"No team won today.")
         
         print(f"-----------------")
         print(f"{self.team_one.name} Final Stats:")
@@ -102,8 +100,21 @@ class Arena:
         print(f"-----------------")
 
 if __name__ == "__main__":
+    game_is_running = True
+    #Build Game Arena
     arena = Arena()
+
+    #Build Teams
     arena.build_team_one()
     arena.build_team_two()
-    arena.team_battle()
-    arena.show_stats()
+    
+    while game_is_running:
+        arena.team_battle()
+        arena.show_stats()
+        play_again = input("Play Again? Y or N: ")
+
+        if play_again.lower() == 'n':
+            game_is_running = False
+        else:
+            arena.team_one.revive_heroes()
+            arena.team_two.revive_heroes()
